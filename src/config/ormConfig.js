@@ -1,5 +1,7 @@
 import User from "../models/user.js";
 import Software from "../models/software.js";
+import Request from "../models/request.js";
+
 import {
   DB_HOST,
   DB_NAME,
@@ -16,5 +18,5 @@ export default {
   password: DB_PASSWORD,
   database: DB_NAME,
   synchronize: true,
-  entities: [User, Software],
+  entities: [User, Software, Request],
 };

@@ -62,3 +62,16 @@ export const isAdmin = async (req, res, next) => {
     });
   }
 };
+
+export const isManagerOrAdmin = async (req, res, next) => {
+  const role = req.user.role;
+
+  if (role === "Manager" || role === "Admin") {
+    return next();
+  }
+
+  return res.status(403).json({
+    success: false,
+    message: "Access denied. Manager or Admin role required.",
+  });
+};

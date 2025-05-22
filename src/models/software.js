@@ -1,4 +1,6 @@
-export default {
+import { EntitySchema } from "typeorm";
+
+export default new EntitySchema({
   name: "Software",
   tableName: "softwares",
   columns: {
@@ -17,4 +19,4 @@ export default {
       type: "simple-array",
     },
   },
-};
+});
