@@ -1,5 +1,5 @@
 import { AppDataSource } from "../config/dbConfig.js";
-import { User } from "../models/user.js";
+import User from "../models/user.js";
 
 const userRepo = AppDataSource.getRepository(User);
 

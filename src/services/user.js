@@ -7,6 +7,14 @@ export const signUpUser = async (username, password) => {
     if (existingUser) {
       throw new Error("Username already exists");
     }
+
+    const validRoles = ["Employee", "Admin", "Manager"];
+
+    if (!validRoles.includes(role)) {
+      throw new Error(
+        "Invalid role provided, Kindly provide a valid role like- Employee, Admin, Manager"
+      );
+    }
     const user = await userRepository.createUser({
       username,
       password,
