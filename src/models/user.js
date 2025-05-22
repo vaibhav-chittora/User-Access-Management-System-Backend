@@ -1,4 +1,3 @@
-import bcrypt from "bcrypt";
 import { EntitySchema } from "typeorm";
 
 export default new EntitySchema({
@@ -22,8 +21,5 @@ export default new EntitySchema({
       enum: ["Employee", "Manager", "Admin"],
       default: "Employee",
     },
-  },
-  beforeInsert: async (user) => {
-    user.password = await bcrypt.hash(user.password, 10);
   },
 });
