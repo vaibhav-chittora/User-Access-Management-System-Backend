@@ -42,3 +42,23 @@ export const isAuthenticated = async (req, res, next) => {
     });
   }
 };
+
+export const isAdmin = async (req, res, next) => {
+  try {
+    if (req.user.role !== "Admin") {
+      return res.status(401).json({
+        success: false,
+        message:
+          "You are not an admin, you are not allowed to access this route",
+      });
+    }
+    next();
+  } catch (error) {
+    console.log("Error in isAdmin Middleware", error);
+    return res.status(400).json({
+      success: false,
+      message: "Unauthorized access",
+      error: error.message,
+    });
+  }
+};
