@@ -8,7 +8,7 @@ export const isAuthenticated = async (req, res, next) => {
     if (!token) {
       return res.status(400).json({
         success: false,
-        message: "You are not authenticated",
+        message: "Token not found, please login again",
       });
     }
     const isTokenValid = jwt.verify(token, JWT_SECRET);

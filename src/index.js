@@ -3,6 +3,11 @@ import express from "express";
 import cors from "cors";
 import { PORT } from "./config/serverConfig.js";
 import { connectDB } from "./config/dbConfig.js";
+import {
+  isAuthenticated,
+  isAdmin,
+  isManagerOrAdmin,
+} from "./middlewares/authMiddleware.js";
 import apiRouter from "./routes/apiRouter.js";
 
 const app = express();
